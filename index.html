@@ -10,10 +10,13 @@
       href="https://fonts.googleapis.com/css2?family=Alien+Block&family=Bitcount+Single:wght@100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@100..900&family=Noto+Serif+Bengali:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sekuya&family=Space+Grotesk:wght@300..700&family=Stack+Sans+Headline:wght@200..700&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=News+Cycle:wght@400;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       /* Base Reset */
       * {
@@ -23,7 +26,7 @@
       }
 
       .rubik-font {
-         font-family: "Rubik", sans-serif;
+        font-family: "Rubik", sans-serif;
         font-weight: 400;
       }
 
@@ -31,13 +34,12 @@
         font-family: "Playfair Display", serif;
         background-color: #000000;
         color: #ffffff;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden; /* Prevents scrolling on desktop */
+        /* Removed align-items: center here as it requires display: flex to work */
+        scrollbar-width: none;
       }
-
+      ::-webkit-scrollbar {
+        display: none;
+      }
       .alien-font {
         font-family: "Alien Block", sans-serif;
         font-weight: 400;
@@ -50,9 +52,24 @@
         display: flex;
         width: 100%;
         max-width: 1440px;
+        margin: 0 auto; /* FIX: Centers the container on large screens */
+        height: 100vh;
         padding: 2rem 4rem;
         align-items: center;
         justify-content: space-between;
+        gap: 5rem;
+      }
+
+      .container {
+        display: flex;
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto; /* FIX: Centers the container on large screens */
+        min-height: 100vh;
+        position: relative;
+        padding: 2rem 4rem;
+        align-items: center;
+        justify-content: center; /* FIX: Centers single items instead of pushing them left */
         gap: 5rem;
       }
 
@@ -97,7 +114,8 @@
       }
 
       @media (max-width: 1440px) {
-        .hero-container {
+        .hero-container,
+        .container {
           padding: 2rem 3rem;
           gap: 4rem;
         }
@@ -121,7 +139,8 @@
           overflow-y: auto;
         }
 
-        .hero-container {
+        .hero-container,
+        .container {
           flex-direction: column;
           text-align: center;
           padding: 4rem 2rem;
@@ -153,27 +172,36 @@
           max-width: 100%;
         }
       }
-      .gradient-mask {
-  /* 1. Define the gradient */
-  background: linear-gradient(
-    to right, 
-    darkblue, 
-    #a4e5ff, 
-    #e17b0d, 
-    #a4e5ff, 
-    darkblue
-  );
-  
-  /* 2. Clip the background to the text */
-  -webkit-background-clip: text;
-  background-clip: text;
-  
-  /* 3. Make the text itself transparent so the background shows through */
-  color: transparent;
 
-  /* Optional: Ensure text wraps or displays nicely depending on your layout */
-  display: inline-block; 
-}
+      /* Phone screens */
+      @media (max-width: 768px) {
+        .product-video {
+          height: 300px !important;
+          max-height: 300px;
+        }
+      }
+
+      .gradient-mask {
+        /* 1. Define the gradient */
+        background: linear-gradient(
+          to right,
+          darkblue,
+          #a4e5ff,
+          #e17b0d,
+          #a4e5ff,
+          darkblue
+        );
+
+        /* 2. Clip the background to the text */
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        /* 3. Make the text itself transparent so the background shows through */
+        color: transparent;
+
+        /* Optional: Ensure text wraps or displays nicely depending on your layout */
+        display: inline-block;
+      }
     </style>
   </head>
   <body>
@@ -187,12 +215,115 @@
 
       <div class="text-section">
         <h1 class="title">
-          The <br> <span class="alien-font  gradient-mask">Reunion</span> of Tomorrow
+          The <br />
+          <span class="alien-font gradient-mask">Reunion</span> of Tomorrow.
         </h1>
         <p class="subtitle rubik-font">
           Join the waitlist for the tomorrow reunion and experience the future
           of innovation.
         </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="text-section" style="align-items: center; text-align: center">
+        <h1 class="title">
+          Meet the
+          <span class="alien-font gradient-mask">Future</span>
+        </h1>
+        <p class="subtitle rubik-font" style="max-width: 550px">
+          Join us in the making of Bangladesh's most futuristic reunion platform
+          where everyone will get a never-to-forget experience.
+        </p>
+      </div>
+    </div>
+
+    <div class="hero-container">
+      <div class="video-section">
+        <video
+          style="height: 450px; filter: grayscale(1) contrast(2.5)"
+          class="product-video"
+          autoplay
+          loop
+          muted
+          playsinline
+        >
+          <source src="vid-2-comp.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="text-section">
+        <h1 class="title">
+          Lets make <br />
+          <span class="alien-font">Reunion</span> truely ours!
+        </h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="text-section" style="align-items: center; text-align: center">
+        <h1 class="title">
+          Meet the
+          <span class="alien-font gradient-mask">Founder</span>
+        </h1>
+        <p class="subtitle rubik-font" style="max-width: 550px">
+          Atiqur Rahman Arif is the founder of Reun.org and alonearif inc. He is
+          a visionary entrepreneur with a passion for creating innovative
+          platforms that connect people and foster collaboration.
+        </p>
+      </div>
+    </div>
+
+    <div class="hero-container">
+      <div class="video-section">
+        <video
+          style="filter: blur(45px)"
+          class="product-video"
+          autoplay
+          loop
+          muted
+          playsinline
+        >
+          <source src="vid-comp.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="text-section">
+        <h1 class="title">
+          Packed with <br />
+          <span class="alien-font gradient-mask">Powerful</span> tools including
+          <br />
+          ReunAI.
+        </h1>
+      </div>
+    </div>
+
+    <div class="container" style="overflow: hidden">
+      <div style="align-items: center; text-align: center" class="text-section">
+        <h1 style="font-size: 1rem" class="title">
+          <span style="font-size: 1rem" class="alien-font">Reun.org</span> is a
+          platform brought to you by
+          <span style="font-size: 1.5rem" class="alien-font"
+            >alonearif inc.</span
+          >
+        </h1>
+      </div>
+      <div
+        class="text-section"
+        style="
+          align-items: center;
+          position: absolute;
+          bottom: -50px;
+          left: 0;
+          width: 100%;
+          text-align: center;
+        "
+      >
+        <h1 style="font-size: 12rem" class="title">
+          <span class="alien-font gradient-mask">Reun.org</span>
+        </h1>
       </div>
     </div>
   </body>

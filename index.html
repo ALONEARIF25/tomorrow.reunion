@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimal Product Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alien+Block&family=Bitcount+Single:wght@100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@100..900&family=Noto+Serif+Bengali:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sekuya&family=Space+Grotesk:wght@300..700&family=Stack+Sans+Headline:wght@200..700&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base Reset */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Playfair Display", serif;
+        background-color: #000000;
+        color: #ffffff;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden; /* Prevents scrolling on desktop */
+      }
+
+      .alien-font {
+        font-family: "Alien Block", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: 0.03em;
+      }
+
+      /* Split Screen Container */
+      .hero-container {
+        display: flex;
+        width: 100%;
+        max-width: 1440px;
+        padding: 2rem 4rem;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5rem;
+      }
+
+      /* Left Side: Video Alignment */
+      .video-section {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end; /* Keeps it close to the center text */
+        align-items: center;
+      }
+
+      .product-video {
+        height: 700px;
+        width: auto;
+        border-radius: 16px; /* Smooth, modern corners */
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06); /* Minimal soft shadow */
+        object-fit: cover;
+        background-color: #eaeaea; /* Fallback color while loading */
+      }
+
+      /* Right Side: Typography */
+      .text-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .title {
+        font-size: 4.5rem;
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        margin-bottom: 1.25rem;
+      }
+
+      .subtitle {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: #9b9b9b;
+        line-height: 1.4;
+        max-width: 85%;
+      }
+
+      @media (max-width: 1440px) {
+        .hero-container {
+          padding: 2rem 3rem;
+          gap: 4rem;
+        }
+
+        .product-video {
+          height: 600px;
+        }
+
+        .title {
+          font-size: 4rem;
+        }
+        .subtitle {
+          font-size: 1rem;
+        }
+      }
+
+      /* Responsive Design for smaller screens */
+      @media (max-width: 1024px) {
+        body {
+          height: auto;
+          overflow-y: auto;
+        }
+
+        .hero-container {
+          flex-direction: column;
+          text-align: center;
+          padding: 4rem 2rem;
+          gap: 3rem;
+        }
+
+        .video-section {
+          order: 2; /* Moves video below text on mobile */
+          justify-content: center;
+          width: 100%;
+        }
+
+        .product-video {
+          height: auto;
+          max-height: 700px;
+          width: 100%;
+        }
+
+        .text-section {
+          order: 1;
+          align-items: center;
+        }
+
+        .title {
+          font-size: 3rem;
+        }
+
+        .subtitle {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero-container">
+      <div class="video-section">
+        <video class="product-video" autoplay loop muted playsinline>
+          <source src="vid-comp.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="text-section">
+        <h1 class="title">
+          The <span class="alien-font">Reunion</span> of Tomorrow
+        </h1>
+        <p class="subtitle">
+          Join the waitlist for the tomorrow reunion and experience the future
+          of innovation.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
